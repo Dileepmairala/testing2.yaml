@@ -5,12 +5,12 @@
 
   tasks:
     - name: Update apt cache
-      apt:
+      apt-get:
         update_cache: yes
       become: yes
 
     - name: Install MySQL server and client
-      apt:
+      apt-get:
         name: "{{ item }}"
         state: present
       become: yes
