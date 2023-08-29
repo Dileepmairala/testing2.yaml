@@ -4,5 +4,5 @@
   tasks:
     - name: Create a directory named "new_directory"
       file:
-        path: /home/test/
+        path: /home/test/dileep
         state: directory
