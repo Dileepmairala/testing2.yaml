@@ -1,0 +1,8 @@
+---
+- name: Create a directory
+  hosts: 172.16.0.202
+  tasks:
+    - name: Create a directory named "new_directory"
+      file:
+        path: /home/test/
+        state: directory
