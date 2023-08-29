@@ -4,8 +4,9 @@
   become: yes  # This will enable sudo privileges for the tasks
 
   tasks:
-    - name: Create a folder
+    - name: Create a directory
       file:
-        path: /home/test/test/ # Replace with the desired folder path
+        path: /home/test/ # Replace with the desired folder path
         state: directory
+        directory_name: "dir1"
       become: yes
