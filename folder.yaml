@@ -6,6 +6,6 @@
   tasks:
     - name: Create a folder
       file:
-        path: /home/test # Replace with the desired folder path
+        path: /home/test/test/ # Replace with the desired folder path
         state: directory
       become: yes
