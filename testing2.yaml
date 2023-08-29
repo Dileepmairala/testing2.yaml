@@ -1,0 +1,40 @@
+---
+- name: Install MySQL on Ubuntu
+  hosts: 172.16.0.249
+  become: yes  # This will enable sudo privileges for the tasks
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      become: yes
+
+    - name: Install MySQL server and client
+      apt:
+        name: "{{ item }}"
+        state: present
+      become: yes
+      loop:
+        - mysql-server
+        - mysql-client
+        - python3-mysqldb  # If you're using Python to interact with MySQL
+
+    - name: Start MySQL service
+      service:
+        name: mysql
+        state: started
+      become: yes
+
+    - name: Secure MySQL installation
+      expect:
+        command: mysql_secure_installation
+        responses:
+          'Enter current password for root (enter for none):': ''
+          'Set root password? [Y/n]': 'Y'
+          'New password:': 'your_desired_root_password'
+          'Re-enter new password:': 'your_desired_root_password'
+          'Remove anonymous users? [Y/n]': 'Y'
+          'Disallow root login remotely? [Y/n]': 'Y'
+          'Remove test database and access to it? [Y/n]': 'Y'
+          'Reload privilege tables now? [Y/n]': 'Y'
+      become: yes
