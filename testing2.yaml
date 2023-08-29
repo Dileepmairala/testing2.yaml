@@ -1,6 +1,6 @@
 ---
 - name: Install MySQL on Ubuntu
-  hosts: 172.16.0.249
+  hosts: 172.16.0.202
   become: yes  # This will enable sudo privileges for the tasks
 
   tasks:
