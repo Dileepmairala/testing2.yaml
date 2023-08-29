@@ -4,11 +4,6 @@
   become: yes  # This will enable sudo privileges for the tasks
 
   tasks:
-    - name: Update apt cache
-      apt:
-        update_cache: yes
-      become: yes
-
     - name: Install MySQL server and client
       apt:
         name: "{{ item }}"
