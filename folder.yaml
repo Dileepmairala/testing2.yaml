@@ -1,0 +1,11 @@
+---
+- name: Create Folder
+  hosts: 172.16.0.202  # Replace with your target host or group name
+  become: yes  # This will enable sudo privileges for the tasks
+
+  tasks:
+    - name: Create a folder
+      file:
+        path: /home/test # Replace with the desired folder path
+        state: directory
+      become: yes
